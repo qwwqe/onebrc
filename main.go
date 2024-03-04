@@ -14,7 +14,7 @@ const (
 )
 
 type Strategy interface {
-	Process(filename string) []string
+	Process(filename string)
 }
 
 func Usage() {
@@ -49,5 +49,5 @@ func main() {
 	strategy.Process(filename)
 	duration := time.Since(startTime)
 
-	fmt.Printf("Executed '%s' strategy in %v seconds\n", *strategyType, duration)
+	fmt.Printf("Executed '%s' strategy in %v\n", *strategyType, duration)
 }
