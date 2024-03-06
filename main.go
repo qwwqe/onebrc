@@ -10,7 +10,8 @@ import (
 type StrategyType = string
 
 const (
-	SimpleStrategyType StrategyType = "simple"
+	SimpleStrategyType   StrategyType = "simple"
+	BytewiseStrategyType StrategyType = "bytewise"
 )
 
 type Strategy interface {
@@ -40,6 +41,8 @@ func main() {
 	switch *strategyType {
 	case SimpleStrategyType:
 		strategy = SimpleStrategy{}
+	case BytewiseStrategyType:
+		strategy = BytewiseStrategy{}
 	default:
 		fmt.Fprintf(os.Stderr, "Unknown strategy '%s'\n", *strategyType)
 		os.Exit(1)
